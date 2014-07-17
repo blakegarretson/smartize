@@ -27,12 +27,6 @@ def smartize(text, grave=False, markup=False):
         re_double_close = re.compile(r"(?i)(?<=[a-z0-9.!?%])('')")
         re_single_close = re.compile(r"(?i)((?<=[a-z0-9.!?%])')|((?<=\s)'(?=(tis\b|twas\b)))|((?<=\s)'(?=[0-9]+s*\b))")
         re_single_open = re.compile(r"(?i)((?<![a-z])(`)(?=[a-z0-9]))|((?<=\s)'(?=[0-9]))")
-        # text = text.replace("```", open_double_single)    
-        # text = text.replace("'''", close_single_double)
-        # text = text.replace("``", open_double)    
-        # text = text.replace("`", open_single)
-        # text = text.replace("''", close_double)
-        # text = text.replace("'", close_single)
     else:
         re_triple_open = re.compile(r"""(?i)("')(?=[a-z0-9])""")
         re_triple_close = re.compile(r"""(?i)(?<=[a-z0-9.!?%])('")""")
