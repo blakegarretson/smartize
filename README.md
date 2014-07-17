@@ -11,6 +11,13 @@ Besides the aforementioned curly quote replacement, the following replacements a
 
 Markup|Character|Unicode Char|Notes
 -------|-------|-------|-------
+"|double quote|“ or ”|in default input mode
+\`\`|open double quote|“|in grave input mode
+''|close double quote|”|in grave input mode
+'|single quote|‘ or ’|in default input mode
+\`|open single quote|‘|in grave input mode
+'|close single quote|’|in grave input mode
+'|apostrophe|’|when surrounded by letters
 \-\-|en dash|–| only when \-\- are surrounded by numbers
 \-\-\-|em dash|—|only when \-\-\- are surrounded by letters
 (C)| copyright|©| 
@@ -18,12 +25,12 @@ Markup|Character|Unicode Char|Notes
 (TM)|trademark|™|
 ...|ellipsis|…| 
 
-== Example
+## Example
 
 This:
 
-===== "'This' is 'a' 'test'". "This" isn't. (R) (C) (TM) 1--2 Em---dash 'tis 'twas
+#####"'This' is 'a' 'test'". "This" isn't. (R) (C) (TM) 1--2 Em---dash 'tis 'twas
 
 yields this:
 
-===== “‘This’ is ‘a’ ‘test’”. “This” isn’t. ® © ™ 1–2 Em—dash ’tis ’twas
+#####“‘This’ is ‘a’ ‘test’”. “This” isn’t. ® © ™ 1–2 Em—dash ’tis ’twas
