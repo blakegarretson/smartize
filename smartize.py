@@ -1,4 +1,5 @@
-﻿# -*- coding: utf-8 -*-
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
 
 import re 
 
@@ -82,7 +83,8 @@ def main():
     args = parser.parse_args()
     
     if args.OUTFILE == False:
-        output_filename = args.INFILE+".out.asc"
+        base, ext = os.path.splitext(args.INFILE)
+        output_filename = base+".smart"+ext
     else:
         output_filename = args.OUTFILE    
         
@@ -98,4 +100,5 @@ def main():
 
 if __name__ == "__main__":
     import argparse
+    import os.path
     main()
