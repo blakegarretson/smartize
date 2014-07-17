@@ -1,18 +1,9 @@
 ﻿# -*- coding: utf-8 -*-
 
-# chcp 65001
-
-import sys, re 
-import sys, codecs, locale
-# print(sys.stdin.encoding)
-# print(sys.stdout.encoding)
-# print(locale.getdefaultlocale()[1])
-
-reload(sys)
-sys.setdefaultencoding("utf-8")
-
+import re 
 
 def smartize(text, grave=False, markup=False):
+    # quotes
     if markup:
         open_double_single = "```"
         open_double = "``"
@@ -66,24 +57,28 @@ def smartize(text, grave=False, markup=False):
     
     return text
 
-def main():
-    parser = argparse.ArgumentParser(description="""Convert dumb characters to smart characters.
+help_desc = """Convert dumb characters to smart characters.
 
-Straight quotes like " and ' are converted to curly quotes (including apostrophes in contractions). 
-Other characters are replaced as well, like en dashes, em dashes, and ellipses, etc.  The full list is below.
-""", epilog="""Non-quote replacements:
+Straight quotes like " and ' are converted to curly quotes 
+(including apostrophes in contractions).  Other characters 
+are replaced as well, like en dashes, em dashes, and ellipses, 
+etc.  The full list is below."""
+
+help_epilog = """Non-quote replacements:
 en dash (when -- is surrounded by numbers), 
 em dash (when --- is surrounded by letters),
-copyright (C), registered (R), trademark (TM), and ellipsis ...
-""")
+copyright (C), registered (R), trademark (TM), and ellipsis ..."""
+
+def main():
+    parser = argparse.ArgumentParser(description=help_desc, epilog=help_epilog)
     parser.add_argument("INFILE", help="input file to be processed")
     parser.add_argument("OUTFILE", nargs='?', help="optional output filename", default=False)
-    
-    parser.add_argument("-g","--grave", help="input file uses grave/straight markup quotes (``,'') instead of default straight quotes (\",')",
-                    action="store_true", default=False)
-    parser.add_argument("-m","--markup", help="output should be markup (``,'') instead of the default unicode chars" ,
-                    action="store_true", default=False)
-    
+    parser.add_argument("-g","--grave", help="input file uses grave/straight markup quotes" +
+                        " (``,'') instead of default straight quotes (\",')",
+                        action="store_true", default=False)
+    parser.add_argument("-m","--markup", help="output should be markup (``,'') instead of "+
+                        "the default unicode chars" ,
+                        action="store_true", default=False)
     args = parser.parse_args()
     
     if args.OUTFILE == False:
