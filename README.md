@@ -1,4 +1,4 @@
 smartize
 ========
 
-Replace straight quotes, en/em dashes, and ellipses with their unicode characters, making your writing look smarter.
+Standalone Python program as well as a library that processes text to replace straight quotes, en/em dashes, ellipses, and a few other characters with their unicode characters, making your writing look smarter.
