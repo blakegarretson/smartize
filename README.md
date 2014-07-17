@@ -18,3 +18,11 @@ Markup|Character|Unicode Char|Notes
 (TM)|trademark|™|
 ...|ellipsis|…| 
 
+**Example**
+This:
+
+"'This' is 'a' 'test'". "This" isn't. (R) (C) (TM) 1--2 Em---dash 'tis 'twas
+
+yields:
+
+“‘This’ is ‘a’ ‘test’”. “This” isn’t. ® © ™ 1–2 Em—dash ’tis ’twas
