@@ -7,17 +7,27 @@ The goal here is **NOT** to create yet another markup language.  This is just a 
 
 Straight quotes like " and ' are converted to curly quotes (including apostrophes in contractions) to turn "this" and 'this' into “this” and ‘this’. There are also options to use grave/straight markup quotes (e.g. \`\`this'' or \`this') instead of default straight quotes (",'), and you can output this same markup instead of unicode characters if you want to convert straight quoting to markup grave quoting.
 
-#### Here are the replacements are made:
+#### Quote replacement in default mode:
 
-Markup|Character|Unicode Char|Notes
--------|-------|-------|-------
-`"`|double quote|“ or ”|in default input mode
+Input Markup|Character Name|Output Unicode Char|Notes
+:-------:|:-------:|:-------:|-------
+`"`|double quote|“ or ”|figures out which to use based on context
+`'`|single quote|‘ or ’|figures out which to use based on context
+
+#### Quote replacement in grave markup mode:
+
+Input Markup|Character Name|Output Unicode Char|Notes
+:-------:|:-------:|:-------:|-------
 ``` `` ```|open double quote|“|in grave input mode
 `''`|close double quote|”|in grave input mode
-`'`|single quote|‘ or ’|in default input mode
 ``` ` ```|open single quote|‘|in grave input mode
 `'`|close single quote|’|in grave input mode
-`'`|apostrophe|’|when surrounded by letters
+ 
+#### Other replacements in any mode:
+
+Input Markup|Character Name|Output Unicode Char|Notes
+:-------:|:-------:|:-------:|-------
+`'`|apostrophe|’|for contractions, only invoked when surrounded by letters
 `--`|en dash|–| only when \-\- are surrounded by numbers
 `---`|em dash|—|only when \-\-\- are surrounded by letters
 `(C)`| copyright|©| 
@@ -25,14 +35,16 @@ Markup|Character|Unicode Char|Notes
 `(TM)`|trademark|™|
 `...`|ellipsis|…| 
 
+There are a few other special apostrophe cases like ’tis or ’70s where the closing quote is the appropriate character even though it is at the beginning of a word, so an exception is made for those situations. 
+
 #### Example
 
 This:
 
-`"'This' is 'a' 'test'". "This" isn't. (R) (C) (TM) 1--2 Em---dash 'tis 'twas`
+`"'This' is 'a' 'test'". "This" isn't. (R) (C) (TM) 1--2 Em---dash 'tis 'twas, in the '70s`
 
 yields this:
 
-`“‘This’ is ‘a’ ‘test’”. “This” isn’t. ® © ™ 1–2 Em—dash ’tis ’twas`
+`“‘This’ is ‘a’ ‘test’”. “This” isn’t. ® © ™ 1–2 Em—dash ’tis ’twas, in the ’70s`
 
 A Python `unittest` test suite is built into the program, so you can look at the code to see what the expected output should be for a large number of scenarios.  
