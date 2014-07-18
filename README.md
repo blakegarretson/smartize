@@ -16,12 +16,12 @@ Input Markup|Character Name|Output Unicode Char|Notes
 
 #### Quote replacement in grave markup mode:
 
-Input Markup|Character Name|Output Unicode Char|Notes
+Input Markup|Character Name|Output Unicode Char
 :-------:|:-------:|:-------:|-------
-``` `` ```|open double quote|“|in grave input mode
-`''`|close double quote|”|in grave input mode
-``` ` ```|open single quote|‘|in grave input mode
-`'`|close single quote|’|in grave input mode
+``` `` ```|open double quote|“
+`''`|close double quote|”
+``` ` ```|open single quote|‘
+`'`|close single quote|’
  
 #### Other replacements in any mode:
 
