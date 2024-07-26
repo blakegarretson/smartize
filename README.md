@@ -17,7 +17,7 @@ Input Markup|Character Name|Output Unicode Char|Notes
 #### Quote replacement in grave markup mode:
 
 Input Markup|Character Name|Output Unicode Char
-:-------:|:-------:|:-------:|-------
+:-------:|:-------:|:-------
 ``` `` ```|open double quote|`“`
 `''`|close double quote|`”`
 ``` ` ```|open single quote|`‘`
