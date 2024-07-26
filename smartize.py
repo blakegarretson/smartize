@@ -1,6 +1,5 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-# Copyright (C) 2014 Blake T. Garretson
 
 import re, unittest
 
@@ -93,6 +92,7 @@ class TestSequenceFunctions(unittest.TestCase):
                         (" 'twas",' ’twas', False, False),
                         (" 'tis",' ’tis', False, False),
                         ("isn't",'isn’t', False, False),
+                        ("It's",'It’s', False, False),
                         # Misc chars
                         ("a---b","a—b", False, False),
                         (" ---b"," ---b", False, False),
@@ -157,6 +157,8 @@ def main():
     parser.add_argument("-g","--grave", help="input file uses grave/straight markup quotes" +
                         " (``,'') instead of default straight quotes (\",')",
                         action="store_true", default=False)
+    parser.add_argument("-o","--overwrite", help="overwrite input file with output" ,
+                        action="store_true", default=False)
     parser.add_argument("-m","--markup", help="output should be markup (``,'') instead of "+
                         "the default unicode chars" ,
                         action="store_true", default=False)
@@ -177,6 +179,9 @@ def main():
         
     infile.close()
     outfile.close()
+
+    if args.overwrite:
+        os.replace(output_filename, args.INFILE)
 
 if __name__ == "__main__":
     import argparse
